@@ -64,10 +64,10 @@
     <profile>
       <id>package-app</id>
       <activation>
-        <property>
-          <name>env</name>
-          <value>ci</value>
-        </property>
+         <property>
+           <name>env</name>
+           <value>ci</value>
+         </property>
       </activation>
       <build>
         <plugins>
@@ -84,7 +84,7 @@
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <executable>/opt/anaconda/bin/app_descriptor_generator</executable>
+                  <executable>app_descriptor_generator</executable>
                   <arguments>
                     <argument>${basedir}/src/main/app-resources/application_template.xml</argument>
                     <argument>${basedir}/src/main/app-resources/application.xml</argument>
@@ -95,6 +95,7 @@
               </execution>
             </executions>
           </plugin>
+
 
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
@@ -112,7 +113,7 @@
                     <require>miniconda</require>
                     <require>OTB</require>
                     <require>java-1.8.0-openjdk-devel</require>
-                    <require>snap6</require>
+                    <require>snap</require> 
                   </requires>
                   <postinstallScriptlet combine.self="override">
                     <script>conda update conda -y &amp;&amp; conda install -y --file /application/dependencies/python/packages.list &amp;&amp; cp /application/notebook/etc/snappy.ini /opt/anaconda/lib/python2.7/site-packages/snappy/snappy.ini</script>

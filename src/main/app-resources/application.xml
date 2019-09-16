@@ -2,11 +2,10 @@
   <jobTemplates>
     <jobTemplate id="notebook">
       <streamingExecutable>/application/notebook/run</streamingExecutable>
-      <defaultParameters><parameter id="regionOfInterest" title="WKT Polygon for the Region of Interest" abstract="Set the value of WKT Polygon" maxOccurs="1" scope="runtime" type="LiteralData">POLYGON((25.0 48.0, 94.0 48.0, 94.0 23.1, 25.0 23.1, 25.0 48.0))</parameter><parameter id="nameOfRegion" title="Name of Region" abstract="Name of the region of interest" minOccurs="1" maxOccurs="1" scope="runtime" type="LiteralData">CentralAsia</parameter></defaultParameters>
+      <defaultParameters><parameter id="regionOfInterest" title="WKT Polygon for the Region of Interest" abstract="Set the value of WKT Polygon" maxOccurs="1" scope="runtime" type="LiteralData">POLYGON((25.0 48.0, 94.0 48.0, 94.0 23.1, 25.0 23.1, 25.0 48.0))</parameter><parameter id="nameOfRegion" title="Name of Region" abstract="Name of the region of interest" minOccurs="1" maxOccurs="1" scope="runtime" type="LiteralData">CentralAsia</parameter><parameter id="startDate" title="start date" abstract="start date" minOccurs="1" maxOccurs="1" scope="runtime" type="LiteralData">2015-08-05T00:00:00Z</parameter><parameter id="endDate" title="end date" abstract="end date" minOccurs="1" maxOccurs="1" scope="runtime" type="LiteralData">2016-07-27T00:00:00Z</parameter><parameter id="modisMission" title="Modis Terra or Aqua" abstract="Modis Terra or Aqua" minOccurs="1" maxOccurs="1" scope="runtime" type="LiteralData">Terra</parameter></defaultParameters>
      <defaultJobconf>
         <property id="mapred.task.timeout">9900000000000</property>
-        <property id="ciop.job.max.tasks">1</property> 
-     </defaultJobconf>
+      </defaultJobconf>
     </jobTemplate>
   </jobTemplates>
   <workflow id="ewf-wfp-02-02-01" title="Snow Cover Characterization Time Series" abstract="Snow Cover Characterization Time Series">
@@ -14,7 +13,7 @@
     <node id="notebook">
       <job id="notebook"/>
       <sources>
-        <source id="source" title="Input references" abstract="Input references" refid="string:list" scope="runtime"/>
+        <source id="source" title="Input references" abstract="Input references" refid="string:list" scope="runtime">https://catalog.terradue.com/modis/search?pt=MOD10A2</source>
       </sources>
     </node>
   </workflow>
