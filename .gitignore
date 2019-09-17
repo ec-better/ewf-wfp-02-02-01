@@ -7,3 +7,4 @@
 *.pyc
 *checkpoint.py
 *checkpoint.ipynb
+temp/

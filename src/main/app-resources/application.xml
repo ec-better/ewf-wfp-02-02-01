@@ -1,0 +1,20 @@
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="application">
+  <jobTemplates>
+    <jobTemplate id="notebook">
+      <streamingExecutable>/application/notebook/run</streamingExecutable>
+      <defaultParameters><parameter id="regionOfInterest" title="WKT Polygon for the Region of Interest" abstract="Set the value of WKT Polygon" maxOccurs="1" scope="runtime" type="LiteralData">POLYGON((25.0 48.0, 94.0 48.0, 94.0 23.1, 25.0 23.1, 25.0 48.0))</parameter><parameter id="nameOfRegion" title="Name of Region" abstract="Name of the region of interest" maxOccurs="1" scope="runtime" type="LiteralData">CentralAsia</parameter><parameter id="startDate" title="start date" abstract="start date" maxOccurs="1" scope="runtime" type="LiteralData">2015-08-05T00:00:00Z</parameter><parameter id="endDate" title="end date" abstract="end date" maxOccurs="1" scope="runtime" type="LiteralData">2016-07-27T00:00:00Z</parameter><parameter id="modisMission" title="Modis Terra or Aqua" abstract="Modis Terra or Aqua" maxOccurs="1" scope="runtime" type="LiteralData">Terra</parameter></defaultParameters>
+     <defaultJobconf>
+        <property id="mapred.task.timeout">9900000000000</property>
+      </defaultJobconf>
+    </jobTemplate>
+  </jobTemplates>
+  <workflow id="ewf-wfp-02-02-01" title="Snow Cover Characterization Time Series" abstract="Snow Cover Characterization Time Series">
+    <workflowVersion>1.0</workflowVersion>
+    <node id="notebook">
+      <job id="notebook"/>
+      <sources>
+        <source id="source" title="Input references" abstract="Input references" refid="string:list" scope="runtime">https://catalog.terradue.com/modis/search?pt=MOD10A2</source>
+      </sources>
+    </node>
+  </workflow>
+</application>

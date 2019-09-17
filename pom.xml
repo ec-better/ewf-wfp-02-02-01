@@ -11,7 +11,7 @@
     <version>2.0.0</version>
   </parent>
   <description>Snow Cover Characterization Time Series</description>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1</version>
   <properties>
     <summary>Snow Cover Characterization Time Series</summary>
     <description>Snow Cover Characterization Time Series</description>
@@ -60,7 +60,6 @@
         </plugins>
       </build>
     </profile>
-
     <profile>
       <id>package-app</id>
       <activation>
@@ -71,7 +70,6 @@
       </activation>
       <build>
         <plugins>
-
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
@@ -84,7 +82,7 @@
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <executable>/opt/anaconda/bin/app_descriptor_generator</executable>
+                  <executable>app_descriptor_generator</executable>
                   <arguments>
                     <argument>${basedir}/src/main/app-resources/application_template.xml</argument>
                     <argument>${basedir}/src/main/app-resources/application.xml</argument>
@@ -95,7 +93,6 @@
               </execution>
             </executions>
           </plugin>
-
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>rpm-maven-plugin</artifactId>
@@ -112,7 +109,7 @@
                     <require>miniconda</require>
                     <require>OTB</require>
                     <require>java-1.8.0-openjdk-devel</require>
-                    <require>snap6</require>
+                    <require>snap</require>
                   </requires>
                   <postinstallScriptlet combine.self="override">
                     <script>conda update conda -y &amp;&amp; conda install -y --file /application/dependencies/python/packages.list &amp;&amp; cp /application/notebook/etc/snappy.ini /opt/anaconda/lib/python2.7/site-packages/snappy/snappy.ini</script>
