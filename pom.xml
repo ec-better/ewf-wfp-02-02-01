@@ -11,7 +11,7 @@
     <version>3.0.1-docker</version>
   </parent>
   <description>Snow Cover Characterization Time Series</description>
-  <version>1.3</version>
+  <version>1.4</version>
   <properties>
     <summary>Snow Cover Characterization Time Series</summary>
     <description>Snow Cover Characterization Time Series</description>
