@@ -2,7 +2,7 @@
   <jobTemplates>
     <jobTemplate id="notebook">
       <streamingExecutable>/application/notebook/run</streamingExecutable>
-      <defaultParameters><parameter id="modisSatellite" title="Modis Terra or Aqua" abstract="Modis Terra or Aqua" maxOccurs="1" scope="runtime" type="LiteralData">Terra</parameter></defaultParameters>
+      <defaultParameters><parameter id="modisSatellite" title="Modis Terra or Aqua" abstract="Modis Terra or Aqua" minOccurs="1" maxOccurs="1" scope="runtime" type="LiteralData">Terra</parameter></defaultParameters>
      <defaultJobconf>
         <property id="mapred.task.timeout">9900000000000</property>
         <property id="ciop.job.max.tasks">1</property> 
